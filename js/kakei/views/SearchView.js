@@ -3,8 +3,9 @@
  */
 define([
     'backbone',
-    '../models/Search'
-], function (Backbone, Search) {
+    '../models/Search',
+    '../collections/KakeiList'
+], function (Backbone, Search, KakeiList) {
     var SearchView = Backbone.View.extend({
         initialize: function () {
             console.log("[View]SearchView::initialize()");
@@ -20,20 +21,16 @@ define([
             return this.model.toEscapedJSON();
         },
         onClickSearch: function(e) {
-            //var kakeiList = new KakeiList();
-            //this.collection = kakeiList;
-            // 画面の検索条件指定をモデルにセットする
-            console.log("[View]SearchView::onClickSearch()" + this.$el.find('input[name="searchBuyDateFrom"]').val());
-            console.log("before " + this.collection.get("searchBuyDateFrom"));
-            this.collection.set('searchBuyDateFrom', this.$el.find('input[name="searchBuyDateFrom"]').val());
-            console.log("after " + this.collection.get("searchBuyDateFrom"));
-            //this.collection.setSearchBuyDateFrom(this.$el.find('input[name="searchBuyDateFrom"]').val());
-            this.collection.set('searchBuyDateTo', this.$el.find('input[name="searchBuyDateTo"]').val());
-            this.collection.set('searchKamokuid', this.$el.find('select[name="searchKamokuid"]').val());
-            this.collection.set('searchNotes', this.$el.find('input[name="searchNotes"]').val());
-            this.collection.set('searchConsumer', this.$el.find('select[name="searchConsumer"]').val());
-            this.collection.set('searchPayer', this.$el.find('select[name="searchPayer"]').val());
-
+            var kakeiList = new KakeiList({
+                // 画面の検索条件指定をモデルにセットする
+                searchBuyDateFrom: this.$el.find('input[name="searchBuyDateFrom"]').val(),
+                searchBuyDateTo: this.$el.find('input[name="searchBuyDateTo"]').val(),
+                searchNotes: this.$el.find('input[name="searchNotes"]').val(),
+                searchKamokuid: this.$el.find('select[name="searchKamokuid"]').val(),
+                searchConsumer: this.$el.find('select[name="searchConsumer"]').val(),
+                searchPayer: this.$el.find('select[name="searchPayer"]').val()
+            });
+            this.collection = kakeiList;
             this.collection.fetch({
                 success : function success(collection, res, options) {
                     //self.trigger('onDelete', model);  // イベント発火

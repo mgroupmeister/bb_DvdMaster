@@ -22,19 +22,27 @@ define([
         searchPayer: "",
 
         url: function() {
-            return "/KakeiREST/webresources/kakei4?"
-                + "searchBuyDateFrom=" + this.get("searchBuyDateFrom")
-            + "&searchBuyDateTo=" + this.get("searchBuyDateTo")
-            + "&searchNotes=" +  this.get("searchNotes")
-            + "&searchKamokuid=" +  this.get("searchKamokuid")
-            + "&searchConsumer=" +  this.get("searchConsumer")
-            + "&searchPayer=" +  this.get("searchPayer");
+            return "/KakeiREST/webresources/kakei4?";
+            //    + "searchBuyDateFrom=" + this.options.searchBuyDateFrom
+            //+ "&searchBuyDateTo=" + this.options.searchBuyDateTo
+            //+ "&searchNotes=" +  this.options.searchNotes
+            //+ "&searchKamokuid=" +  this.options.searchKamokuid
+            //+ "&searchConsumer=" +  this.options.searchConsumer
+            //+ "&searchPayer=" +  this.options.searchPayer;
         },
 
         comparator: function(kakei){
             return kakei.index();
         },
+        //initialize: function(options) {
+        //    console.dir("[Collection]KakeiList::initialize()"+ this.options.searchBuyDateFrom);
+        //    this.options=options;
+        //    // イベント購読
+        //    this.listenTo(this.collection, 'add', this.append);
+        //    this.listenTo(this, 'onFetch', this._onFetch);
+        //},
         initialize: function() {
+            console.dir("[Collection]KakeiList::initialize()");
             // イベント購読
             this.listenTo(this.collection, 'add', this.append);
             this.listenTo(this, 'onFetch', this._onFetch);
