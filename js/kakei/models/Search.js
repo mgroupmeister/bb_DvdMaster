@@ -7,8 +7,13 @@ define([
 ], function(Backbone) {
     var Search = Backbone.Model.extend({
         url: function() {
-            return "/KakeiREST/webresources/kakei4/login2" + (this.has("user") ? "/" + this.get("user") : "")
-                + (this.has("password") ? "/" + this.get("password") : "");
+            return "/KakeiREST/webresources/kakei4?"
+                + (this.has("searchBuyDateFrom") ? "searchBuyDateFrom=" + this.get("searchBuyDateFrom") : "")
+                + (this.has("searchBuyDateTo") ? "&searchBuyDateTo=" + this.get("searchBuyDateTo") : "")
+                + (this.has("searchNotes") ? "&searchNotes=" + this.get("searchNotes") : "")
+                + (this.has("searchKamokuid") ? "&searchKamokuid=" + this.get("searchKamokuid") : "")
+                + (this.has("searchConsumer") ? "&searchConsumer=" + this.get("searchConsumer") : "")
+                + (this.has("searchPayer") ? "&searchPayer=" + this.get("searchPayer") : "");
         },
 
         // インスタンス生成時に実行

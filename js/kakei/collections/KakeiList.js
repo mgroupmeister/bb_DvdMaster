@@ -9,7 +9,28 @@ define([
     var KakeiList = Backbone.Collection.extend({
         //localStorage: new LocalStorage('kakei'),
         model: Kakei,
-        url: '/KakeiREST/webresources/kakei4/?searchBuyDateFrom=2015/11/01&searchBuyDateTo=2015/11/30',
+        //url: '/KakeiREST/webresources/kakei4/?searchBuyDateFrom=2015/11/01&searchBuyDateTo=2015/11/30',
+
+        searchBuyDateFrom: null,
+        //setSearchBuyDateFrom: function(param) {
+        //    this.set('searchBuyDateFrom', param);
+        //},
+        searchBuyDateTo: "",
+        searchNotes: "",
+        searchKamokuid: "",
+        searchConsumer: "",
+        searchPayer: "",
+
+        url: function() {
+            return "/KakeiREST/webresources/kakei4?"
+                + "searchBuyDateFrom=" + this.get("searchBuyDateFrom")
+            + "&searchBuyDateTo=" + this.get("searchBuyDateTo")
+            + "&searchNotes=" +  this.get("searchNotes")
+            + "&searchKamokuid=" +  this.get("searchKamokuid")
+            + "&searchConsumer=" +  this.get("searchConsumer")
+            + "&searchPayer=" +  this.get("searchPayer");
+        },
+
         comparator: function(kakei){
             return kakei.index();
         },

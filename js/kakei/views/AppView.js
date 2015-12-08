@@ -5,8 +5,11 @@ define([
     'underscore',
     'backbone',
     './HeaderView',
-    './ListView'
-    ], function(_, Backbone, HeaderView, ListView) {
+    './ListView',
+    './SearchView',
+    '../models/Search',
+    '../collections/KakeiList'
+    ], function(_, Backbone, HeaderView, ListView, SearchView, Search, KakeiList) {
 
     var AppView = Backbone.View.extend({
         initialize: function () {
@@ -34,8 +37,10 @@ define([
             });
 
             // 検索領域を表示する
+            var kakeiList = new KakeiList();
             this.searchView = new SearchView({
-                el: "#searchView"
+                el: "#searchView",
+                collection: kakeiList
             });
 
             return this;
