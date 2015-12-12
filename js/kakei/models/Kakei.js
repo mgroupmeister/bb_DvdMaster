@@ -1,4 +1,5 @@
 /**
+ * 家計レコード１行分のモデル
  * Created by tetsuya.matsuura on 2015/11/10.
  */
 define([

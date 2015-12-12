@@ -1,4 +1,5 @@
 /**
+ * 一覧表示領域（１行分の表示を含む）
  * Created by tetsuya.matsuura on 2015/11/10.
  */
 define([
@@ -17,12 +18,18 @@ define([
         },
 
         render: function () {
-            this.collection.each(function (kakei) {
-                this.append(kakei);
-            }, this);
+            console.log("[View]ListView::render()");
+
+            if (this.collection) {
+                // 表示データが存在する場合に１行ずつレンダリングする
+                this.collection.each(function (kakei) {
+                    this.append(kakei);
+                }, this);
+            }
             return this;
         },
         append: function (kakei) {
+            console.log("[View]ListView::append()");
             var item_view = (new ItemView({model: kakei, tagName: "tr"})).render();
 
             var index = this.collection.indexOf(kakei);
@@ -31,27 +38,7 @@ define([
             } else {
                 item_view.$el.insertAfter(this.$el.children()[index-1]);
             }
-        },
-
-
-        //render: function () {
-        //    console.log("[View]KakeiListView::render()");
-        //
-        //    var list = "<% _.each(items, function(item) { %>"
-        //    + "<li id='<%=item.get("id")%>'><%- item.get('buyDate') %></li>"
-        //    + "<% })%>";
-        //    var compiled = _.template(list);
-        //
-        //    this.$el.html(compiled({items: this.collection}));
-        //    //this.collection.each(function (model) {
-        //    //    this.append(model);
-        //    //}, this)
-        //    return this;
-        //}
-        //append: function (model) {
-        ////    var index = this.collection.indexOf(model);
-        //    itemView = new ItemView({model: model}).render();
-        //}
+        }
     });
     return ListView;
 });

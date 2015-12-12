@@ -1,4 +1,5 @@
 /**
+ * ログイン入力フォーム
  * Created by tetsuya.matsuura on 2015/12/06.
  */
 define([

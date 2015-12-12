@@ -1,4 +1,5 @@
 /**
+ * ダミーデータ設定
  * Created by tetsuya.matsuura on 2015/11/15.
  */
 define([

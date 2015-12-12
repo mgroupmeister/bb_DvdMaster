@@ -1,4 +1,5 @@
 /**
+ * 一覧表示領域の１行分
  * Created by tetsuya.matsuura on 2015/11/10.
  */
 define(['backbone'
@@ -60,7 +61,7 @@ define(['backbone'
             this.model.destroy({
                 success : function success(model, res) {
                     //self.trigger('onDelete', model);  // イベント発火
-                    alert("deleted");
+                    //alert("deleted");
                 },
                 error : function error(model, res) {
                     alert("delete failed");
