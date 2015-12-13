@@ -15,6 +15,16 @@ define([
 
             // AppViewにて検索ボタンのDOMイベントをカスタムイベントとして発生させたイベントをキャッチする
             this.listenTo(Backbone, 'searchBtnClick', this.onClickSearch);
+
+            // 一覧領域を表示する
+            this.listView = new ListView({
+                // HTML上のid="kakeiListView"のタグ配下にレンダリングする
+                el: "#kakeiListView",
+                // デフォルトのdivタグの出力は不要
+                tagName: "",
+                collection: this.collection
+            });
+
         },
         events: {
         },
@@ -36,6 +46,7 @@ define([
                 searchConsumer: this.$el.find('select[name="searchConsumer"]').val(),
                 searchPayer: this.$el.find('select[name="searchPayer"]').val()
             });
+
             this.collection = kakeiList;
             this.collection.fetch({
                 success : function success(collection, res, options) {
@@ -59,13 +70,7 @@ define([
 
             // 一覧領域を表示する
             console.log("[View]SearchView::onClickSearch() -> ListView");
-            this.listView = new ListView({
-                // HTML上のid="kakeiListView"のタグ配下にレンダリングする
-                el: "#kakeiListView",
-                // デフォルトのdivタグの出力は不要
-                tagName: "",
-                collection: this.collection
-            });
+            this.listView.collection = this.collection;
             this.$('#kakei-table').append(this.listView.render().el);
         }
     });

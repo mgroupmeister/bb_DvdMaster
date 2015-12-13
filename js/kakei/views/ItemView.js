@@ -75,7 +75,7 @@ define(['backbone',
             });
         },
         formatNumber: function(num) {
-            if (num.length == 0) {
+            if (Number(num).length == 0) {
                 return "";
             } else {
                 return Number(num).toLocaleString();

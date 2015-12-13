@@ -56,6 +56,9 @@ require.config({
             deps: ['jquery', 'underscore'],
             exports: 'Backbone'
         },
+        'bootstrap-datepicker': {
+            exports: 'DatePicker'
+        },
         'dateformat': {
             exports: 'DateFormat'
         }
