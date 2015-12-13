@@ -110,60 +110,12 @@ require([
         // モードの同一コードよりも高速に実行することができる場合があるなどのメリットがあります。
         'use strict';
 
-        //// 一覧表示のデータを取得する
-        //console.log("main  KakeiList");
-        //var kakeiList = new KakeiList([], {searchBuyDateFrom: "2015-12-01"});
-        //kakeiList.fetch({
-        //    success: function success(collection, res, options) {
-        //        // 通信成功時の処理
-        //        console.dir("loading success");
-        //        collection.trigger('onFetch');    // 追記：イベント発火
-        //        // userCollection.trigger('onFetch');  // これでもok
-        //    },
-        //    error: function error() {
-        //        // 通信失敗時の処理
-        //        console.dir("loading error");
-        //    }
-        //});
-        //
-        //// ローカル実行の場合はデータを取得できない。
-        //// そのような場合はテスト用にスタブデータをロードする。
-        //if (kakeiList.isEmpty()) {
-        //    console.dir("loading stub data");
-        //    kakeiList.reset(StubKakeiList);
-        //}
-
         // メインビューをレンダリングする（入れ子になっているビューをレンダリングする）
-        var appView = new AppView({
-            // 一覧表示用のデータをコレクションとしてセットする
-            //collection: kakeiList,
-
-        });
+        var appView = new AppView();
         $(function () {
             // HTMLのbodyタグ配下（画面全体）を対象としてレンダリングする
             $('body').append(appView.render().el);
         });
-
-
-        //**********************************************
-        // appViewを使わないパターン
-        //**********************************************
-        //// 一覧表示のビューを準備する
-        //var listView = new ListView({
-        //    // 受信したデータのリストをセットする
-        //    collection: kakeiList,
-        //    // html上のid="kakeiListView"の部分にレンダリングする
-        //    el: "#kakeiListView",
-        //    // デフォルトのdivタグの出力は不要
-        //    tagName: ""
-        //});
-        //// 一覧表示を出力する
-        //$(function () {
-        //    // HTMLのid="kakei-table"配下を対象としてレンダリングする
-        //    $('#kakei-table').append(listView.render().el);
-        //    Backbone.history.start();
-        //});
-        //**********************************************
 
     }
 );

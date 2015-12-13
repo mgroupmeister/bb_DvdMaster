@@ -18,7 +18,7 @@ define([
         // ※onClick eventで実装するとモーダルを閉じることができなかった。destroyで閉じても下の画面が黒いまま・・
         //   submitを利用すれば自動的に閉じた。
         submit: function(){
-            console.log("[View]InputView::submit()" + this.$el.find('input[name="user"]:checked').val() + this.$el.find('input[type="password"]').val());
+            console.log("[View]InputView::submit()");
             this.model.set('buydate', this.$el.find('input[name="buyDate"]').val());
             if (this.$el.find('input[name="payAmount"]').val()!="0" && this.$el.find('input[name="payAmount"]').val()!="") {
                 this.model.set('payamount', this.$el.find('input[name="payAmount"]').val());
@@ -43,6 +43,9 @@ define([
                     console.log("login failed." + res);
                 }
             });
+
+            // 一覧を再描画（検索ボタンクリックの処理を実行するイベントを発生させる）
+            Backbone.trigger('searchBtnClick');
         }
 
     });

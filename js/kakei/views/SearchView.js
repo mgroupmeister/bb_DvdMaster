@@ -12,10 +12,11 @@ define([
     var SearchView = Backbone.View.extend({
         initialize: function () {
             console.log("[View]SearchView::initialize()");
+
+            // AppViewにて検索ボタンのDOMイベントをカスタムイベントとして発生させたイベントをキャッチする
+            this.listenTo(Backbone, 'searchBtnClick', this.onClickSearch);
         },
         events: {
-            // 検索ボタンをクリックされた場合の処理を指定
-            'click #searchBtn': "onClickSearch"
         },
         render: function () {
             console.log("[View]SearchView::render()");

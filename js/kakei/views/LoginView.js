@@ -32,6 +32,9 @@ define([
                     console.log("login failed." + res);
                 }
             });
+
+            // 一覧を再描画（検索ボタンクリックの処理を実行するイベントを発生させる）
+            Backbone.trigger('searchBtnClick');
         }
     });
     return LoginView;
