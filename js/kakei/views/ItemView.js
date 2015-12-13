@@ -2,8 +2,9 @@
  * 一覧表示領域の１行分
  * Created by tetsuya.matsuura on 2015/11/10.
  */
-define(['backbone'
-], function (Backbone) {
+define(['backbone',
+    'dateformat'
+], function (Backbone, DateFormat) {
     var ItemView = Backbone.View.extend({
         initialize: function () {
             console.log("[View]ItemView::initialize()");
@@ -22,26 +23,31 @@ define(['backbone'
             //var compiled = _.template(list);
             this.tag="";
             var kakei = this.model;
+
+            // 表示用に日付の書式を変換する
+            var dateFormat = new DateFormat("yyyy/MM/dd");
+            var formatedBuydate = dateFormat.format(new Date(kakei.get('buydate')));
+
             var lineHtml = ""
             + "<td nowrap>"
-            + kakei.get('buydate')
+            + formatedBuydate
             + "</td>"
-            + "<td nowrap'>"
-            + kakei.get('payamount')
+            + "<td nowrap class='currency'>"
+            + this.formatNumber(kakei.get('payamount'))
             + "</td>"
-            + "<td nowrap'>"
-            + kakei.get('incomeamount')
+            + "<td nowrap class='currency'>"
+            + this.formatNumber(kakei.get('incomeamount'))
             + "</td>"
-            + "<td nowrap'>"
+            + "<td nowrap>"
             + kakei.get('kamokuName')
             + "</td>"
-            + "<td nowrap'>"
+            + "<td nowrap>"
             + kakei.get('notes')
             + "</td>"
-            + "<td nowrap'>"
+            + "<td nowrap>"
             + kakei.get('payerName')
             + "</td>"
-            + "<td nowrap'>"
+            + "<td nowrap>"
             + kakei.get('consumerName')
             + "</td>"
             + "<td><button type='button' class='btn btn-danger btn-xs'>delete</button></td>";
@@ -67,6 +73,13 @@ define(['backbone'
                     alert("delete failed");
                 }
             });
+        },
+        formatNumber: function(num) {
+            if (num.length == 0) {
+                return "";
+            } else {
+                return Number(num).toLocaleString();
+           }
         }
     });
     // モジュールのviewを返す

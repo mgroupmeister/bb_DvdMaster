@@ -13,7 +13,8 @@ require.config({
         'backbone.modal': 'backbone.modal/backbone.modal',
         'backbone.localStorage': 'backbone.localStorage/backbone.localStorage',
         'bootstrap': 'bootstrap/bootstrap',
-        'bootstrap-datepicker': 'bootstrap-datepicker/bootstrap-datepicker'
+        'bootstrap-datepicker': 'bootstrap-datepicker/bootstrap-datepicker',
+        'dateformat': 'dateformat/dateformat'
         //'babysitter': 'backbone.babysitter/backbone.babysitter',
         //'wreqr': 'backbone.wreqr/backbone.wreqr',
         //'marionette': 'backbone.marionette/backbone.marionette',
@@ -54,6 +55,9 @@ require.config({
         'backbone': {
             deps: ['jquery', 'underscore'],
             exports: 'Backbone'
+        },
+        'dateformat': {
+            exports: 'DateFormat'
         }
         //'babysitter': {
         //    deps: ['backbone', 'wreqr', 'marionette'],
