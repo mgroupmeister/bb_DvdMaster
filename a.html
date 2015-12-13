@@ -115,7 +115,7 @@
                             </td>
                             <td>
                                 <!-- datePickerの設定方法は要検討 -->
-                                <input id="buyDate" type="text" name="buyDate" size="7" onclick="setDatePicker4BuyDate();">
+                                <input id="buyDate" type="text" name="buyDate" size="7" >
                             </td>
                         </tr>
                         <tr>
@@ -326,52 +326,7 @@
     </div>
 </div>
 
-
 <footer class="container kakei-footer text-muted text-right">Copyright(C) 2015 tetair.net</footer>
-
-<!--カレンダ表示の設定-->
-<script>
-    $(document).ready(function(){
-        $('#buyDate').datepicker({
-            format: "yyyy/mm/dd",
-            language: "ja",
-            autoclose: true,
-            orientation: "top auto"
-        });
-        $('#searchBuyDateFrom').datepicker({
-            format: "yyyy/mm/dd",
-            language: "ja",
-            autoclose: true,
-            orientation: "top auto"
-        });
-        $('#searchBuyDateTo').datepicker({
-            format: "yyyy/mm/dd",
-            language: "ja",
-            autoclose: true,
-            orientation: "top auto"
-        });
-        var today = new Date();
-        var year = today.getYear();
-        if(year<1000) year+=1900;
-        var thismonth = year + "/" + (today.getMonth()+1) + "/" + 1;
-        $("#buyDate").datepicker("setDate", today);
-        $("#searchBuyDateFrom").datepicker("setDate", thismonth);
-        $("#searchBuyDateTo").datepicker("setDate", today);
-    });
-    function setDatePicker4BuyDate() {
-        $('#buyDate').datepicker({
-            format: "yyyy/mm/dd",
-            language: "ja",
-            autoclose: true,
-            orientation: "top auto"
-        });
-        var today = new Date();
-        var year = today.getYear();
-        if(year<1000) year+=1900;
-        var thismonth = year + "/" + (today.getMonth()+1) + "/" + 1;
-        $("#buyDate").datepicker("setDate", today);
-    }
-</script>
 
 </body>
 </html>

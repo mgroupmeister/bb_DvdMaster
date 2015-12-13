@@ -4,9 +4,8 @@
  */
 define([
     'backbone',
-    'backbone.modal',
-    'bootstrap-datepicker'
-], function (Backbone, BackboneModal, DatePicker) {
+    'backbone.modal'
+], function (Backbone, BackboneModal) {
     var InputView = BackboneModal.extend({
         template: '#modal-template-input',
         submitEl: '.modal-submit',

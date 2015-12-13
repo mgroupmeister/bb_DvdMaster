@@ -7,8 +7,9 @@ define([
     'backbone',
     './HeaderView',
     './ListView',
-    './SearchView'
-    ], function(_, Backbone, HeaderView, ListView, SearchView) {
+    './SearchView',
+    'bootstrap-datepicker'
+    ], function(_, Backbone, HeaderView, ListView, SearchView, DatePicker) {
 
     var AppView = Backbone.View.extend({
         initialize: function () {
@@ -43,6 +44,28 @@ define([
             this.searchView = new SearchView({
                 el: "#searchView",
             });
+
+            // 検索条件の日付入力にカレンダ選択を設定する
+            $('#searchBuyDateFrom').datepicker({
+                format: "yyyy/mm/dd",
+                language: "ja",
+                autoclose: true,
+                orientation: "top auto"
+            });
+            $('#searchBuyDateTo').datepicker({
+                format: "yyyy/mm/dd",
+                language: "ja",
+                autoclose: true,
+                orientation: "top auto"
+            });
+
+            // 検索条件の日付にデフォルト値を設定する
+            var today = new Date();
+            var year = today.getYear();
+            if(year<1000) year+=1900;
+            var thismonth = year + "/" + (today.getMonth()+1) + "/" + 1;
+            $("#searchBuyDateFrom").datepicker("setDate", thismonth);
+            $("#searchBuyDateTo").datepicker("setDate", today);
 
             return this;
         },
