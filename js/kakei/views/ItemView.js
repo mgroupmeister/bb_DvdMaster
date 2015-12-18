@@ -17,7 +17,7 @@ define(['backbone',
           'click button': "onClickDelete"
         },
         render: function () {
-
+            console.log("[View]ItemView::render()");
             //this.id = this.model.id;
             //var list = "<div id='<%=this.model.id%>'><%=this.model.buyDate %></div>"
             //var compiled = _.template(list);

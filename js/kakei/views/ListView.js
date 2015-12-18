@@ -8,20 +8,19 @@ define([
 ], function (Backbone, ItemView) {
     var ListView = Backbone.View.extend({
 
-        // このViewで管理する要素を指定する。
-        //el: "#kakeiListView",
-
         // インスタンス生成時に実行
         initialize: function () {
             console.log("[View]ListView::initialize()");
             this.listenTo(this.collection, 'add', this.append);
         },
-
         render: function () {
-            console.log("[View]ListView::render()");
+            console.log("[View]ListView::render()" );
 
+            // 画面に表示している一覧をクリアする
+            this.$el.html("");
+
+            // 表示データが存在する場合に１行ずつレンダリングする
             if (this.collection) {
-                // 表示データが存在する場合に１行ずつレンダリングする
                 this.collection.each(function (kakei) {
                     this.append(kakei);
                 }, this);
@@ -31,7 +30,6 @@ define([
         append: function (kakei) {
             console.log("[View]ListView::append()");
             var item_view = (new ItemView({model: kakei, tagName: "tr"})).render();
-
             var index = this.collection.indexOf(kakei);
             if (index === 0) {
                 this.$el.prepend(item_view.el);

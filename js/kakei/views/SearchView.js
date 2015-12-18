@@ -16,6 +16,10 @@ define([
             // AppViewにて検索ボタンのDOMイベントをカスタムイベントとして発生させたイベントをキャッチする
             this.listenTo(Backbone, 'searchBtnClick', this.onClickSearch);
 
+            // 一覧のfetchが完了した後に発生するイベント（REST通信が非同期なので完了を検知するために必要）
+            this.listenTo(Backbone, 'onFetchList', this.onFetchList);
+            this.listenTo(Backbone, 'onFetchListStub', this.onFetchListStub);
+
             // 一覧領域を表示する
             this.listView = new ListView({
                 // HTML上のid="kakeiListView"のタグ配下にレンダリングする
@@ -48,28 +52,40 @@ define([
             });
 
             this.collection = kakeiList;
+
             this.collection.fetch({
                 success : function success(collection, res, options) {
                     //self.trigger('onDelete', model);  // イベント発火
                     //alert("login success");
                     console.log("search success" + res);
+
+                    // fetch完了のイベントを発生させる
+                    Backbone.trigger('onFetchList');
                 },
                 error : function error(collection, res, options) {
                     //alert("login failed." + res);
                     console.log("search failed." + res);
+                    // fetch完了のイベントを発生させる
+                    Backbone.trigger('onFetchListStub');
                 }
             });
 
+        },
+        onFetchList: function() {
+            console.log("[View]SearchView::onFetchList");
+            // 一覧領域を表示する
+            this.listView.collection = this.collection;
+            this.$('#kakei-table').append(this.listView.render().el);
+        },
+        onFetchListStub: function() {
+            console.log("[View]SearchView::onFetchListStub");
             // ローカル実行の場合はデータを取得できない。
             // そのような場合はテスト用にスタブデータをロードする。
-            if (kakeiList.isEmpty()) {
-                console.dir("loading stub data");
-                kakeiList.reset(StubKakeiList);
-                this.collection = kakeiList;
-            }
-
+            console.dir("loading stub data");
+            var kakeiList = new KakeiList();
+            kakeiList.reset(StubKakeiList);
+            this.collection = kakeiList;
             // 一覧領域を表示する
-            console.log("[View]SearchView::onClickSearch() -> ListView");
             this.listView.collection = this.collection;
             this.$('#kakei-table').append(this.listView.render().el);
         }
