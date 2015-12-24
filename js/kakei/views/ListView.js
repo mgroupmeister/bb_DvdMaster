@@ -11,7 +11,6 @@ define([
         // インスタンス生成時に実行
         initialize: function () {
             console.log("[View]ListView::initialize()");
-            this.listenTo(this.collection, 'add', this.append);
         },
         render: function () {
             console.log("[View]ListView::render()" );

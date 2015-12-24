@@ -4,11 +4,10 @@
  */
 define([
     'backbone',
-    '../models/Search',
     '../collections/KakeiList',
     '../collections/StubKakeiList',
     './ListView'
-], function (Backbone, Search, KakeiList, StubKakeiList, ListView) {
+], function (Backbone, KakeiList, StubKakeiList, ListView) {
     var SearchView = Backbone.View.extend({
         initialize: function () {
             console.log("[View]SearchView::initialize()");
