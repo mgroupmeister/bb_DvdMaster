@@ -15,40 +15,12 @@ require.config({
         'bootstrap': 'bootstrap/bootstrap',
         'bootstrap-datepicker': 'bootstrap-datepicker/bootstrap-datepicker',
         'dateformat': 'dateformat/dateformat'
-        //'babysitter': 'backbone.babysitter/backbone.babysitter',
-        //'wreqr': 'backbone.wreqr/backbone.wreqr',
-        //'marionette': 'backbone.marionette/backbone.marionette',
-        //'bootstrap': 'bootstrap/bootstrap',
-        //'bootstrap-datepicker': 'bootstrap-datepicker/bootstrap-datepicker',
-        //'bootstrap-dialog': 'bootstrap-dialog/bootstrap-dialog',
-        //'bootstrap-select': 'bootstrap-select/bootstrap-select',
-        //'hbs': 'require-handlebars-plugin/hbs',
-        //'i18next': 'i18next/i18next',
-        //'chart': 'Chart.js/Chart',
-        //'spin': 'spin/spin',
-        //'d3': 'd3/d3',
-        //'log4javascript': 'log4javascript/log4javascript'
     },
 
     shim: {
         'jquery': {
             exports: '$'
         },
-        //'jquery-ui': {
-        //    deps: ['jquery']
-        //},
-        //'bootstrap': {
-        //    deps: ['jquery','jquery-ui']
-        //},
-        //'bootstrap-datepicker': {
-        //    deps: ['jquery', 'bootstrap']
-        //},
-        //'bootstrap-dialog': {
-         //   deps: ['jquery', 'bootstrap']
-        //},
-        //'bootstrap-select': {
-        //    deps: ['jquery', 'bootstrap']
-        //},
         'underscore': {
             exports: '_'
         },
@@ -62,43 +34,8 @@ require.config({
         'dateformat': {
             exports: 'DateFormat'
         }
-        //'babysitter': {
-        //    deps: ['backbone', 'wreqr', 'marionette'],
-        //    exports: 'Backbone.Marionette'
-        //},
-        //'hbs/handlebars': {
-        //    exports: 'Handlebars'
-        //},
-        //'spin': {
-        //    exports: 'Spinner'
-        //}
-        //'i18next': {
-        //    deps: ['jquery']
-        //}
     }
 });
-
-// init my app
-//require({
-//        hbs: {
-//            helperPathCallback: function(name) {return 'aicj/templates/helpers/' + name;}
-//        }
-//    },
-//    [
-//        //'aicj/app',
-//        'jquery',
-//        'jquery-ui',
-//        //'bootstrap',
-//        //'bootstrap-datepicker',
-//        //'bootstrap-dialog',
-//        //'bootstrap-select',
-//        //'i18next'
-//        //'d3'
-//    ], function (app) {
-//        'use strict';
-//        app.start();
-//    });
-// require(["module/name", ...], function(params){ ... });
 
 require([
         'jquery',

@@ -54,15 +54,11 @@ define([
 
             this.collection.fetch({
                 success : function success(collection, res, options) {
-                    //self.trigger('onDelete', model);  // イベント発火
-                    //alert("login success");
                     console.log("search success" + res);
-
                     // fetch完了のイベントを発生させる
                     Backbone.trigger('onFetchList');
                 },
                 error : function error(collection, res, options) {
-                    //alert("login failed." + res);
                     console.log("search failed." + res);
                     // fetch完了のイベントを発生させる
                     Backbone.trigger('onFetchListStub');
@@ -74,7 +70,7 @@ define([
             console.log("[View]SearchView::onFetchList");
             // 一覧領域を表示する
             this.listView.collection = this.collection;
-            this.$('#kakei-table').append(this.listView.render().el);
+            this.listView.render();
         },
         onFetchListStub: function() {
             console.log("[View]SearchView::onFetchListStub");
@@ -86,7 +82,7 @@ define([
             this.collection = kakeiList;
             // 一覧領域を表示する
             this.listView.collection = this.collection;
-            this.$('#kakei-table').append(this.listView.render().el);
+            this.listView.render();
         }
     });
 

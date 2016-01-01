@@ -4,9 +4,9 @@
  */
 define([
     'backbone',
-    './LoginView',
+    './../modals/LoginView',
     '../models/Login',
-    './InputView',
+    './../modals/InputView',
     '../models/Kakei',
     'bootstrap-datepicker'
 ], function (Backbone, LoginView,  Login, InputView, Kakei, DatePicker) {
