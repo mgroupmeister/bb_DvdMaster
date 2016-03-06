@@ -5,14 +5,14 @@
 define([
     'backbone',
     'backbone.localStorage',
-    'kakei/models/Kakei'
-], function(Backbone, LocalStorage, Kakei){
-    var KakeiList = Backbone.Collection.extend({
-        //localStorage: new LocalStorage('kakei'),
-        model: Kakei,
+    '..//models/Dvd'
+], function(Backbone, LocalStorage, Dvd){
+    var DvdList = Backbone.Collection.extend({
+        //localStorage: new LocalStorage('dvd'),
+        model: Dvd,
 
         url: function() {
-            return "/KakeiREST/webresources/kakei4?"
+            return "/DvdREST/webresources/dvd?"
                 + "searchBuyDateFrom=" + this.options.searchBuyDateFrom
             + "&searchBuyDateTo=" + this.options.searchBuyDateTo
             + "&searchNotes=" +  this.options.searchNotes
@@ -21,24 +21,24 @@ define([
             + "&searchPayer=" +  this.options.searchPayer;
         },
 
-        comparator: function(kakei){
-            return kakei.index();
+        comparator: function(dvd){
+            return dvd.index();
         },
         initialize: function(models, options) {
-            console.dir("[Collection]KakeiList::initialize()");
+            console.dir("[Collection]DvdList::initialize()");
             this.options = options;
             // イベント購読
             this.listenTo(this.collection, 'add', this.append);
             this.listenTo(this, 'onFetch', this._onFetch);
         },
         parse : function parse(res) {    // modelにsetする値を指定する
-            console.dir("[Collection]KakeiList::parse()");
+            console.dir("[Collection]DvdList::parse()");
             return res;
         },
         _onFetch : function _onFetch() {    // 追記
             // fetch()が終わった後の処理を書く
-            console.dir("[Collection]KakeiList::_onFetch()");
+            console.dir("[Collection]DvdList::_onFetch()");
         }
     });
-    return KakeiList;
+    return DvdList;
 });

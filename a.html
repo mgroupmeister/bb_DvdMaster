@@ -5,12 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>家計簿5</title>
+    <title>DvdMaster</title>
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/bootstrap-datepicker.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/kakei5-layout.css" media="all">
+    <link rel="stylesheet" href="css/dvd-layout.css" media="all">
     <link href="css/backbone.modal.css" rel="stylesheet">
     <link href="css/backbone.modal.theme.css" rel="stylesheet">
 
@@ -32,44 +32,17 @@
 
 <div>
     <!-- ヘッダ領域  -->
-    <div class="kakei-keyVisual jumbotron">
+    <div class="dvd-keyVisual jumbotron">
         <div class="container">
 
             <!-- main > AppView > HeaderView -->
             <div id="headerView" class="text-center">
                 <div class="btn-group">
-                    <button type="button" id="loginBtn" class="btn btn-danger">
-                        <i class="glyphicon glyphicon-user"></i> ログイン
-                    </button>
                     <button type="button" id="inputBtn" class="btn btn-primary">
                         <i class="glyphicon glyphicon-pencil"></i> 登録
                     </button>
                 </div>
             </div>
-
-            <!-- ログイン画面のモーダルを表示する場所
-                  main > AppView > HeaderView > LoginView -->
-            <div class="login-area"></div>
-
-            <!-- ログイン画面の表示内容を出力するスクリプト -->
-            <script type="text/template" id="modal-template-login">
-                <!-- top bar -->
-                <div class="bbm-modal__topbar">
-                    <h3 class="bbm-modal__title">ログイン</h3>
-                </div>
-                <!-- sectionー -->
-                <div class="bbm-modal__section">
-                    <input name="user" type="radio" value="c-matsu" id="user1"><label for="user1">Chika</label>　　<input name="user" type="radio" value="t-matsu" id="user2"><label for="user2">Tetsuya</label>　　
-                    <input id="password" type="password" name="password" size="5">
-                </div>
-                <!-- bottom bar bbm-button -->
-                <div class="bbm-modal__bottombar">
-                    <button type="button" class="btn btn-primary modal-submit">
-                        <i class="glyphicon glyphicon-user"></i> ログイン
-                    </button>
-                    <button class="btn modal-close">閉じる</button>
-                </div>
-            </script>
 
             <!-- 入力画面のモーダルを表示する場所 main > AppView > HeaderView > InputView -->
             <div class="input-area"></div>
@@ -268,15 +241,15 @@
                     <th></th>
                 </tr>
                 </thead>
-                <!-- kakeiListViewはListViewでelに指定。レンダリング対象。※tbodyタグはレンダリングされない -->
-                <tbody id="kakeiListView">
+                <!-- dvdListViewはListViewでelに指定。レンダリング対象。※tbodyタグはレンダリングされない -->
+                <tbody id="dvdListView">
                 </tbody>
             </table>
         </div>
     </div>
 </div>
 
-<footer class="container kakei-footer text-muted text-right">Copyright(C) 2016 asiantet.com</footer>
+<footer class="container dvd-footer text-muted text-right">Copyright(C) 2016 asiantet.com</footer>
 
 </body>
 </html>

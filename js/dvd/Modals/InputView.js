@@ -34,12 +34,10 @@ define([
             this.model.save({
                 success : function success(model, res) {
                     //self.trigger('onDelete', model);  // イベント発火
-                    //alert("login success");
-                    console.log("login success" + res);
+                    console.log("save success" + res);
                 },
                 error : function error(model, res) {
-                    //alert("login failed." + res);
-                    console.log("login failed." + res);
+                    console.log("save failed." + res);
                 }
             });
 

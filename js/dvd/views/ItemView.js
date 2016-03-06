@@ -22,33 +22,33 @@ define(['backbone',
             //var list = "<div id='<%=this.model.id%>'><%=this.model.buyDate %></div>"
             //var compiled = _.template(list);
             this.tag="";
-            var kakei = this.model;
+            var dvd = this.model;
 
             // 表示用に日付の書式を変換する
             var dateFormat = new DateFormat("yyyy/MM/dd");
-            var formatedBuydate = dateFormat.format(new Date(kakei.get('buydate')));
+            var formatedBuydate = dateFormat.format(new Date(dvd.get('buydate')));
 
             var lineHtml = ""
             + "<td nowrap>"
             + formatedBuydate
             + "</td>"
             + "<td nowrap class='currency'>"
-            + this.formatNumber(kakei.get('payamount'))
+            + this.formatNumber(dvd.get('payamount'))
             + "</td>"
             + "<td nowrap class='currency'>"
-            + this.formatNumber(kakei.get('incomeamount'))
+            + this.formatNumber(dvd.get('incomeamount'))
             + "</td>"
             + "<td nowrap>"
-            + kakei.get('kamokuName')
+            + dvd.get('kamokuName')
             + "</td>"
             + "<td nowrap>"
-            + kakei.get('notes')
+            + dvd.get('notes')
             + "</td>"
             + "<td nowrap>"
-            + kakei.get('payerName')
+            + dvd.get('payerName')
             + "</td>"
             + "<td nowrap>"
-            + kakei.get('consumerName')
+            + dvd.get('consumerName')
             + "</td>"
             + "<td><button type='button' class='btn btn-danger btn-xs'>delete</button></td>";
 

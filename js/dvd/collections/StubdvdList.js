@@ -3,8 +3,8 @@
  * Created by tetsuya.matsuura on 2015/11/15.
  */
 define([
-    'kakei/models/Kakei'
-    ],function(Kakei) {
+    '..//models/Dvd'
+    ],function(Dvd) {
     return [
         {id: 1, buydate: new Date(), payamount:"1000", incomeamount: "", kamokuId: "01", kamokuName: "食費",notes: "いちご", consumer: "01", consumerName: "てつや", payer: "01", payerName: "はるや"},
         {id: 2, buydate: new Date(), payamount:"2000", incomeamount: "", kamokuId: "02", kamokuName: "交通費",notes: "タクシー", consumer: "01", consumerName: "てつや", payer: "01", payerName: "はるや"},

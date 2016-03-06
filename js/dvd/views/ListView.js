@@ -4,7 +4,7 @@
  */
 define([
     'backbone',
-    'kakei/views/ItemView'
+    '..//views/ItemView'
 ], function (Backbone, ItemView) {
     var ListView = Backbone.View.extend({
 
@@ -20,16 +20,16 @@ define([
 
             // 表示データが存在する場合に１行ずつレンダリングする
             if (this.collection) {
-                this.collection.each(function (kakei) {
-                    this.append(kakei);
+                this.collection.each(function (dvd) {
+                    this.append(dvd);
                 }, this);
             }
             return this;
         },
-        append: function (kakei) {
+        append: function (dvd) {
             console.log("[View]ListView::append()");
-            var item_view = (new ItemView({model: kakei, tagName: "tr"})).render();
-            var index = this.collection.indexOf(kakei);
+            var item_view = (new ItemView({model: dvd, tagName: "tr"})).render();
+            var index = this.collection.indexOf(dvd);
             if (index === 0) {
                 this.$el.prepend(item_view.el);
             } else {

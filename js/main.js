@@ -40,10 +40,10 @@ require.config({
 require([
         'jquery',
         'backbone',
-        'kakei/collections/KakeiList',
-        'kakei/views/AppView',
-        'kakei/collections/StubKakeiList'
-    ], function($, Backbone, KakeiList, AppView, StubKakeiList) {
+        'dvd/collections/DvdList',
+        'dvd/views/AppView',
+        'dvd/collections/StubDvdList'
+    ], function($, Backbone, DvdList, AppView, StubDvdList) {
 
         console.dir("--main.js Start--");
 

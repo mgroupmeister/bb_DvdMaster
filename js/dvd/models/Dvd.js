@@ -5,9 +5,9 @@
 define([
     'backbone'
 ], function(Backbone) {
-    var Kakei = Backbone.Model.extend({
+    var Dvd = Backbone.Model.extend({
         url: function() {
-            return "/KakeiREST/webresources/kakei4" + (this.has("id") ? "/" + this.get("id") : "");
+            return "/DvdREST/webresources/dvd" + (this.has("id") ? "/" + this.get("id") : "");
         },
         index: function(){
             // ソート用（日付）
@@ -21,12 +21,12 @@ define([
 
         // インスタンス生成時に実行
         initialize: function() {
-            console.dir("[Model]Kakei::initialize()");
+            console.dir("[Model]Dvd::initialize()");
         },
 
         // バリデーションを定義
         validate: function(attrs) {
-            console.dir("[Model]Kakei::validate()");
+            console.dir("[Model]Dvd::validate()");
             var ret = "";
 
             if(_.isEmpty(attrs.notes)) {
@@ -36,5 +36,5 @@ define([
             return ret;
         }
     });
-    return Kakei;
+    return Dvd;
 });
