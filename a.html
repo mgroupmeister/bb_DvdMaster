@@ -59,87 +59,55 @@
                         <tbody>
                         <tr>
                             <td>
-                                <label for="buyDate">日付</label>
+                                <label for="title">Title:</label>
                             </td>
                             <td>
-                                <input id="buyDate" type="text" name="buyDate" size="7" >
+                                <input id="title" type="text" name="title" size="20" >
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="description">Description:</label>
+                            </td>
+                            <td>
+                                <textarea id="description" type="text" name="description" size="20" rows="2"  />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="genre">Genre:</label>
+                            </td>
+                            <td>
+                                <label class="checkbox-inline"><input type="checkbox" id="genre" name="genre" value="1" /></label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="releasedDate">Released Date:</label>
+                            </td>
+                            <td>
+                                <input id="releasedDate" type="text" name="releasedDate" size="7" >
                             </td>
                         </tr>
                         <tr>
                             <td nowrap>
-                                <label for="payAmount">支払金額</label>
+                                <label for="price">Price:</label>
                             </td>
                             <td>
                                 <div class="input-group">
                                     <span class="input-group-addon">￥</span>
-                                    <input id="payAmount" type="number" name="payAmount" 　value="0" size="7"
+                                    <input id="price" type="number" name="price" 　value="0" size="7"
                                            class="currency form-control">
                                 </div>
                             </td>
                         </tr>
                         <tr>
-                            <td>
-                                <label for="incomeAmount">収入金額</label>
-                            </td>
-                            <td>
-                                <div class="input-group">
-                                    <span class="input-group-addon">￥</span>
-                                    <input id="incomeAmount" type="number" name="incomeAmount"
-                                           　class="form-control"
-                                           value="0" size="7"
-                                           class="currency form-control">
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <label for="kamokuId">課目</label>
-                            </td>
-                            <td>
-                                <select id="kamokuId" name="kamokuId" size="1" required>
-                                    <option value="">選択してください</option>
-                                    <option value="1">食費</option>
-                                    <option value="2">交通費</option>
-                                    <option value="3">住居費</option>
-                                    <option value="4">公共料金</option>
-                                    <option value="5">日用品</option>
-                                    <option value="6">贅沢品</option>
-                                    <option value="7">交際費</option>
-                                    <option value="8">給与</option>
-                                    <option value="9">その他</option>
-                                    <option value="10">必要</option>
-                                    <option value="11">医療費</option>
-                                    <option value="12">教育費</option>
-                                </select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <label for="notes">摘要</label>
-                            </td>
-                            <td>
-                                <input id="notes" type="text" name="notes" required>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <label for="consumer">消費者</label>
-                            </td>
-                            <td>
-                                <input type="radio" id="consumer1"  name="consumer" value="1" required><label for="consumer1">All</label>　　
-                                <input type="radio" id="consumer2"  name="consumer" value="2" required><label for="consumer2">Chika</label>　　<input type="radio" id="consumer3" ng-model="consumer" name="consumer"  value="3" required><label for="consumer3">Tetsuya</label>
-                                <input type="radio" id="consumer4"  name="consumer"  value="4" required><label for="consumer4">Haruya</label>　　<input type="radio" id="consumer5" ng-model="consumer" name="consumer"  value="5" required><label for="consumer5">Ryoya</label><br/>
-                                </select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <label for="payer">支払者</label>
-                            </td>
-                            <td>
-                                <input type="radio" id="payer2"  name="payer" value="2" required><label for="payer2">Chika</label>　　<input type="radio" id="payer3"  name="payer"  value="3" required><label for="payer3">Tetsuya</label>
-                                <input type="radio" id="payer4"  name="payer"  value="4" required><label for="payer4">Haruya</label>　　<input type="radio" id="payer5"  name="payer"  value="5" required><label for="payer5">Ryoya</label><br/>
-                            </td>
+                        <td>
+                            <label for="image">Image:</label>
+                        </td>
+                        <td>
+                            <input id="image" type="file" name="image">
+                        </td>
                         </tr>
                         </tbody>
                     </table>

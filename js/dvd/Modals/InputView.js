@@ -18,17 +18,16 @@ define([
         //   submitを利用すれば自動的に閉じた。
         submit: function(){
             console.log("[View]InputView::submit()");
-            this.model.set('buydate', this.$el.find('input[name="buyDate"]').val());
-            if (this.$el.find('input[name="payAmount"]').val()!="0" && this.$el.find('input[name="payAmount"]').val()!="") {
-                this.model.set('payamount', this.$el.find('input[name="payAmount"]').val());
+            this.model.set('title', this.$el.find('select[name="title"]').val());
+            this.model.set('description', this.$el.find('select[name="description"]').val());
+            this.model.set('genre', this.$el.find('select[name="genre"]').val());
+            this.model.set('releasedDate', this.$el.find('input[name="releasedDate"]').val());
+
+            if (this.$el.find('input[name="price"]').val()!="0" && this.$el.find('input[name="price"]').val()!="") {
+                this.model.set('price', this.$el.find('input[name="price"]').val());
             }
-            if (this.$el.find('input[name="incomeAmount"]').val()!="0" && this.$el.find('input[name="incomeAmount"]').val()!="") {
-                this.model.set('incomeamount', this.$el.find('input[name="incomeAmount"]').val());
-            }
-            this.model.set('kamokuid', this.$el.find('select[name="kamokuId"]').val());
-            this.model.set('notes', this.$el.find('input[name="notes"]').val());
-            this.model.set('consumer', this.$el.find('input[name="consumer"]:checked').val());
-            this.model.set('payer', this.$el.find('input[name="payer"]:checked').val());
+
+            this.model.set('image', this.$el.find('select[name="image"]').val());
 
             // POSTメソッドが発行される（サーバ側はPUTで開発していたのでPOSTも追加で用意した）
             this.model.save({
